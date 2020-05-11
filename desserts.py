@@ -13,10 +13,12 @@ class Cupcake:
       self.qty = 0
       Cupcake.cache[self.name] = self
 
+
     def __repr__(self):
         """Human-readable printout for debugging."""
 
         return f'<Cupcake name="{self.name}" qty={self.qty}>'
+
 
     def add_stock(self, amount):
 
@@ -46,11 +48,23 @@ class Cupcake:
 
     @classmethod
     def get(cls, name):
-      for cupcake in cls.cache:
-        if cupcake == name:
-          return cls.cache[cupcake]
+      for cupcake_name in cls.cache:
+        if cupcake_name == name:
+          return cls.cache[cupcake_name]
 
       print("Sorry, that cupcake doesn't exist")
+
+
+class Brownie(Cupcake):
+
+  def __init__(self, name, price):
+    super().__init__(name, 'chocolate', price)
+
+
+  def __repr__(self):
+        """Human-readable printout for debugging."""
+
+        return f'<Brownie name="{self.name}" qty={self.qty}>'
 
 
 
